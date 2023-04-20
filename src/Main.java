@@ -23,28 +23,24 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        MyThread myThread1 = new MyThread();
-        MyThread myThread2 = new MyThread();
-        myThread1.run();
-        myThread2.run();
+        for (int i = 0; i < 5; i++) {
+
+            MyThread thread = new MyThread();
+            thread.start();
+        }
     }
 
 }
 class MyThread extends Thread{
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++) {
-            System.out.println("I'm Thread! My name is " + getName());
-            Random random = new Random();
-            Account account1 = new Account(400d,1);
-            Account account2 = new Account(1000d,2);
-            Account[] accounts = {account1,account2};
-            int randomNumber = random.nextInt(0,2);
-            double randomSum = random.nextDouble(20,1000);
-            double randomSum2 = random.nextDouble(20,1000);
-            Account.replenishmentBalance(accounts[randomNumber],randomSum);
-            Account.withdrawalFromAccount(accounts[randomNumber],randomSum2);
-            System.out.println("\n_______________________________________________\n");
-        }
+        Random random = new Random();
+        double randomBalance = random.nextDouble(400,20000);
+        int randomNumber = random.nextInt(0,10);
+        Account account = new Account(randomBalance,randomNumber);
+        double randomDeposit = random.nextDouble(20,10000);
+        account.replenishmentBalance(randomDeposit);
+        double randomWithdrawal = random.nextDouble(20,10000);
+        account.withdrawalFromAccount(randomWithdrawal);
     }
 }
