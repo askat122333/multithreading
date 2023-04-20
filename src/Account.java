@@ -27,6 +27,7 @@ public class Account {
             double  thisBalance = this.balance + depositAmount;
            this.balance = thisBalance;
         System.out.printf("Счет %d пополнен на сумму: %.2f\nВаш баланс: %.2f\n",this.accountNumber,depositAmount,this.balance);
+        System.out.println("__________________________________________");
     }
 
     public void withdrawalFromAccount(double withdrawalAmount) {
@@ -34,8 +35,10 @@ public class Account {
                 double thisBalance = this.balance - withdrawalAmount;
                this.balance = thisBalance;
                 System.out.printf("Со счета %d снята сумма: %.2f\nВаш баланс: %.2f\n",this.accountNumber,withdrawalAmount,this.balance);
+                System.out.println("__________________________________________");
             }else {
                 System.out.println("Не достаточно средств !!");
+                System.out.println("__________________________________________");
             }
     }
 }

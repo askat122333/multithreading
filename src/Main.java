@@ -36,7 +36,7 @@ class MyThread extends Thread{
     public void run() {
         Random random = new Random();
         double randomBalance = random.nextDouble(400,20000);
-        int randomNumber = random.nextInt(0,10);
+        int randomNumber = random.nextInt(1,10);
         Account account = new Account(randomBalance,randomNumber);
         double randomDeposit = random.nextDouble(20,10000);
         account.replenishmentBalance(randomDeposit);
